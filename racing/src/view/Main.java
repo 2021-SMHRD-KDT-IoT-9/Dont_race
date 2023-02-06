@@ -2,6 +2,8 @@ package view;
 
 import java.util.Scanner;
 
+import DAO.HorseDAO;
+import DTO.HorseInfo;
 import horseControll.Black;
 import horseControll.Blue;
 import horseControll.Horse;
@@ -12,6 +14,7 @@ import horseControll.White;
 public class Main {
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        HorseDAO hd = new HorseDAO();
         boolean isLogin = false;
         System.out.println("------경마 시뮬레이션------");
         while(true){
@@ -45,8 +48,12 @@ public class Main {
                     if(select == 1){			//경기 시퀀스(각 경기마다 도달 등수를 저장)
                         System.out.print("말이름을 입력하세요>>");
                         String name = sc.next();
+<<<<<<< HEAD
 //                        HorseInfo hi = new HorseInfo();
 //                        HorseInfo.setName;
+=======
+                        hd.insert(name);
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
                     }else if(select==2){  
                     	int min = 0; int max = 4;
                     	System.out.println("======경기를 시작합니다======");
@@ -57,8 +64,13 @@ public class Main {
                     	Red rd = new Red(max, min);
                     	White wh = new White(max, min);
                         while(true) {
+<<<<<<< HEAD
                         	Horse hs = null ;
                         	hs.move();
+=======
+                        	Horse hs ;
+//                        	hs.move(bk);
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
                         }
                     }else if(select==3){        
                         
