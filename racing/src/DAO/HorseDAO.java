@@ -103,6 +103,10 @@ public class HorseDAO {
 			System.out.println("닫기 실패");
 		}
 	}
+	public void insert(String name) {
+		// TODO Auto-generated method stub
+		
+	}
 }
 
 
