@@ -21,7 +21,11 @@ public class MyHorse implements Horse{
 	public String name() {
 		// TODO Auto-generated method stub
 
-		return "sl";
+
+		return "";          //HorseInfo.getName;
+
+
+
 
 	}
 	

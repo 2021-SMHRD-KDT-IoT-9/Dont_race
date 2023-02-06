@@ -3,12 +3,14 @@ package view;
 import java.util.Scanner;
 
 import controller.MainControll;
-//import horseControll.Black;
-//import horseControll.Blue;
-//import horseControll.Horse;
-//import horseControll.MyHorse;
-//import horseControll.Red;
-//import horseControll.White;
+import horseControll.Black;
+import horseControll.Black;
+import horseControll.Blue;
+import horseControll.Horse;
+import horseControll.MyHorse;
+import horseControll.Red;
+import horseControll.White;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -51,7 +53,7 @@ public class Main {
             if(choice == 1){
                 // game ending 조건 -- 일정 경기수를 도달하면 종료 || 계획된 경기수를 도달 못하면 종료 
                 while(true){
-                    System.out.println("                  =======Game Start=======");
+                    System.out.println("          =======Game Start=======");
                     System.out.println("[1]내 말 만들기 [2]경기Start [3]말 확인(경기 이력+) [4]말 훈련 [5]저장하고 Main 으로 돌아가기");
                     // 1 이나 3 입력시 정해진 턴수를 차감.
                     // 턴수가 지나감에따라 computer의 말들의 data 수정 (random의 범위 , 최소값)
@@ -59,12 +61,25 @@ public class Main {
                     if(select == 1){			//경기 시퀀스(각 경기마다 도달 등수를 저장)
                         System.out.print("말이름을 입력하세요>>");
                         String name = sc.next();
-//                        HorseInfo hi = new HorseInfo();
-//                        HorseInfo.setName;
+
                     }else if(select==2){  
                     	System.out.println("======경기를 시작합니다======");
+<<<<<<< HEAD
                     	System.out.println("press enter to continu");                  	
+=======
+                    	System.out.println("press enter to continu");
+
+                    	Black bk = new Black(max, min);
+                    	Blue bl = new Blue(max, min);
+                    	MyHorse mh = new MyHorse(max, min);
+                    	Red rd = new Red(max, min);
+                    	White wh = new White(max, min);
+                       
+
+                    	MainControll mc = new MainControll();
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
                     	mc.run();
+
                     }else if(select==3){        
                         
                     }else if(select==4){        

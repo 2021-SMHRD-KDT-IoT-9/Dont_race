@@ -33,10 +33,8 @@ public class MainControll {
         while(true) {
         	Scanner sc = new Scanner(System.in);
         	String input = sc.nextLine();
+        		
         	
-        	bkRuned+=bk.move(bk,input);
-        	blRuned+=bl.move(bl,input);
-        	rdRuned+=rd.move(rd,input);
         	whRuned+=wh.move(wh,input);
         	
         	if(mhRuned.length()<=19) {
@@ -44,7 +42,30 @@ public class MainControll {
         	}else {
         		mhRuned.substring(0,19);
         		arr.add(mh.name());
-
+        	}
+        	if(bkRuned.length()<=19) {
+        		bkRuned+=bk.move(bk,input);
+        	}else {
+        		bkRuned.substring(0,19);
+        		arr.add(bk.name());
+        	}
+        	if(blRuned.length()<=19) {
+        		blRuned+=bl.move(bl,input);
+        	}else {
+        		blRuned.substring(0,19);
+        		arr.add(bl.name());
+        	}
+        	if(rdRuned.length()<=19) {
+        		rdRuned+=rd.move(rd,input);
+        	}else {
+        		rdRuned.substring(0,19);
+        		arr.add(rd.name());
+        	}
+        	if(whRuned.length()<=19) {
+        		whRuned+=wh.move(wh,input);
+        	}else {
+        		whRuned.substring(0,19);
+        		arr.add(wh.name());
         	}
         	
         	
@@ -55,7 +76,7 @@ public class MainControll {
         	System.out.println(whRuned + ">");
         	
         	
-        	if(mhRuned.length()>=20||bkRuned.length()>=20||blRuned.length()>=20||rdRuned.length()>=20||whRuned.length()>=20) {
+        	if(mhRuned.length()>=20 && bkRuned.length()>=20 && blRuned.length()>=20 && rdRuned.length()>=20 && whRuned.length()>=20) {
         		break;
         	}
         	
