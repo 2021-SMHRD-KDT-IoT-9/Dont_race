@@ -30,13 +30,16 @@ public class White implements Horse{
 	}
 
 	@Override
-	public String move() {
-		Scanner sc = new Scanner(System.in);
+	public String move(Horse hs,String input) {
+		
 		Random rm = new Random();
-		String input = sc.nextLine();
+	
 		if(input.equals("")){
 			int ran = 0;
-			ran = rm.nextInt(max);
+			while(true) {
+				ran = rm.nextInt(max);
+				if(ran>min) break;
+			}
 			for(int i =min; i< ran; i++){
 				line+="-";
 			}

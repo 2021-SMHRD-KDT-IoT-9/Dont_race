@@ -20,7 +20,7 @@ public class JoinDAO {
 		row = 0;
 		try {
 
-			String sql = "insert into join values (?, ?, ?)";
+			String sql = "insert into 회원정보 values (?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getName());
 			psmt.setString(2, dto.getId());

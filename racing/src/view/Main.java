@@ -2,19 +2,17 @@ package view;
 
 import java.util.Scanner;
 
-import DAO.HorseDAO;
-import DTO.HorseInfo;
-import horseControll.Black;
-import horseControll.Blue;
-import horseControll.Horse;
-import horseControll.MyHorse;
-import horseControll.Red;
-import horseControll.White;
+import controller.MainControll;
+//import horseControll.Black;
+//import horseControll.Blue;
+//import horseControll.Horse;
+//import horseControll.MyHorse;
+//import horseControll.Red;
+//import horseControll.White;
 
 public class Main {
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        HorseDAO hd = new HorseDAO();
         boolean isLogin = false;
         System.out.println("------경마 시뮬레이션------");
         while(true){
@@ -48,17 +46,26 @@ public class Main {
                     if(select == 1){			//경기 시퀀스(각 경기마다 도달 등수를 저장)
                         System.out.print("말이름을 입력하세요>>");
                         String name = sc.next();
+<<<<<<< HEAD
 
+=======
+//                        HorseInfo hi = new HorseInfo();
+//                        HorseInfo.setName;
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
                     }else if(select==2){  
-                    	int min = 0; int max = 4;
                     	System.out.println("======경기를 시작합니다======");
                     	System.out.println("press enter to continu");
+<<<<<<< HEAD
                     	Black bk = new Black(max, min);
                     	Blue bl = new Blue(max, min);
                     	MyHorse mh = new MyHorse(max, min);
                     	Red rd = new Red(max, min);
                     	White wh = new White(max, min);
                        
+=======
+                    	MainControll mc = new MainControll();
+                    	mc.run();
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
                     }else if(select==3){        
                         
                     }else if(select==4){        

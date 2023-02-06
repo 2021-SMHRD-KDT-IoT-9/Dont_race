@@ -21,7 +21,11 @@ public class MyHorse implements Horse{
 	public String name() {
 		// TODO Auto-generated method stub
 
+<<<<<<< HEAD
 		return "";          //HorseInfo.getName;
+=======
+		return "sl";
+>>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
 
 	}
 	
@@ -35,13 +39,16 @@ public class MyHorse implements Horse{
 	}
 
 	@Override
-	public String move() {
-		Scanner sc = new Scanner(System.in);
+	public String move(Horse hs,String input) {
+
 		Random rm = new Random();
-		String input = sc.nextLine();
+		
 		if(input.equals("")){
 			int ran = 0;
-			ran = rm.nextInt(max);
+			while(true) {
+				ran = rm.nextInt(max);
+				if(ran>min) break;
+			}
 			for(int i =min; i< ran; i++){
 				line+="-";
 			}
