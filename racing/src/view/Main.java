@@ -13,16 +13,29 @@ import controller.MainControll;
 public class Main {
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        MainControll mc = new MainControll();
         boolean isLogin = false;
         System.out.println("------경마 시뮬레이션------");
         while(true){
             System.out.println("[1]로그인 [2]회원가입 [3]종료 ");
             int choice = sc.nextInt();
             if(choice == 1){                //로그인 시퀀스 , (배팅게임일시) 파산계정으로 로그인시 로그인 거부
-                isLogin = true;
+            	System.out.print("ID : ");
+            	String id = sc.next();
+            	System.out.print("PW : ");
+            	String pw = sc.next();
+            	mc.Login(id, pw);
+            	isLogin = true;
                 break;                      //DTO - > DAO  
             }else if(choice == 2){          //회원가입 시퀀스
-
+            	System.out.print("ID : ");
+            	String id = sc.next();
+            	System.out.print("PW : ");
+            	String pw = sc.next();
+            	System.out.print("NAME : ");
+            	String name = sc.next();
+            	mc.Join(id, pw, name);
+            	
             }else if(choice == 3){
                 System.out.println("종료합니다.");
                 isLogin = false;
@@ -50,8 +63,7 @@ public class Main {
 //                        HorseInfo.setName;
                     }else if(select==2){  
                     	System.out.println("======경기를 시작합니다======");
-                    	System.out.println("press enter to continu");
-                    	MainControll mc = new MainControll();
+                    	System.out.println("press enter to continu");                  	
                     	mc.run();
                     }else if(select==3){        
                         
