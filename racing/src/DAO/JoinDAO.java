@@ -18,7 +18,7 @@ public class JoinDAO {
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 				String url = "jdbc:oracle:thin:@localhost:1521:xe";
-				String db_id = "system";
+				String db_id = "c##horsegame";
 				String db_pw = "12345";
 				conn = DriverManager.getConnection(url, db_id,db_pw);
 				
