@@ -53,20 +53,22 @@ public class Main {
                     	System.out.println("======경기를 시작합니다======");
                     	System.out.println("press enter to continu");
 
-                    	Black bk = new Black(max, min);
-                    	Blue bl = new Blue(max, min);
-                    	MyHorse mh = new MyHorse(max, min);
-                    	Red rd = new Red(max, min);
-                    	White wh = new White(max, min);
-                       
-
                     	MainControll mc = new MainControll();
                     	mc.run();
 
                     }else if(select==3){        
                         
                     }else if(select==4){        
-                        
+                    	MainControll mc = new MainControll();
+                    	System.out.println("[1]최소 속도 훈련 [2]최대 속도 훈련");
+                    	int temp = sc.nextInt();
+                    	if(temp==1) {
+                    		int temp1 = mc.trainMin();
+                    		System.out.println("최소 속도가" +temp1 + "만큼 올랐습니다.");
+                    	}else if(temp==2) {
+                    		int temp1 = mc.trainMax();
+                    		System.out.println("최대 속도가" +temp1 + "만큼 올랐습니다.");
+                    	}else System.out.println("입력오루");
                     }else System.out.println("입력오류");
                 }
                 
