@@ -2,6 +2,13 @@ package view;
 
 import java.util.Scanner;
 
+import horseControll.Black;
+import horseControll.Blue;
+import horseControll.Horse;
+import horseControll.MyHorse;
+import horseControll.Red;
+import horseControll.White;
+
 public class Main {
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -22,37 +29,7 @@ public class Main {
             }else System.out.println("입력오류");
         }
         
-        
-        while(isLogin){                     //경마(배팅)--> // 토너먼트 점수게임 |
-            System.out.println("      ------------Main--------------  ");
-            System.out.println("[1]게임시작! [2]리더보드 [3]설정 [4]종료");
-            int choice = sc.nextInt();
-            if(choice == 1){
-                // game ending 조건 -- 일정 경기수(or 금액)를 도달하면 종료 || 파산 || 기록을 남기고 종료. 
-                while(true){
-                    System.out.println("                  =======Game Start=======");
-                    System.out.println("[1]경기Start [2]소지금 확인 [3]대출(?) [4]저장하고 Main 으로 돌아가기");
-                    int select = sc.nextInt();
-                    if(select == 1){
-                        
-                    }else if(select==2){        //돈을 걸고 경기의 결과에따라 설정된 배당에 따라 소지금에서 추가하거나 감산하여 model 에 저장
-                        
-                    }else if(select==3){        //setter 를 이용하여 금액 ++ , 겅마를 할때마다 이자 누적 
-                        
-                    }else if(select==4){        //model 에 입력된 값을 db 에 저장.
-                        
-                    }else System.out.println("입력오류");
-                }
-                
-            }else if(choice == 2){          //DB 에서 사용자 id 와 기록(금액) 출력
-                
-            }else if(choice == 3){          //초기 투자금 설정 , 경기에서 뛸 말의 수?
-                
-            }else if(choice == 4){
-                
-            }
-            
-        }
+
         while(isLogin){                     //경마(육성)-->
             System.out.println("      ------------Main--------------  ");
             System.out.println("[1]게임시작! [2]리더보드 [3]설정 [4]종료");
@@ -61,17 +38,31 @@ public class Main {
                 // game ending 조건 -- 일정 경기수를 도달하면 종료 || 계획된 경기수를 도달 못하면 종료 
                 while(true){
                     System.out.println("                  =======Game Start=======");
-                    System.out.println("[1]경기Start [2]말 확인(경기 이력+) [3]말 훈련 [4]저장하고 Main 으로 돌아가기");
+                    System.out.println("[1]내 말 만들기 [2]경기Start [3]말 확인(경기 이력+) [4]말 훈련 [5]저장하고 Main 으로 돌아가기");
                     // 1 이나 3 입력시 정해진 턴수를 차감.
                     // 턴수가 지나감에따라 computer의 말들의 data 수정 (random의 범위 , 최소값)
                     int select = sc.nextInt();
-                    if(select == 1){
+                    if(select == 1){			//경기 시퀀스(각 경기마다 도달 등수를 저장)
+                        System.out.print("말이름을 입력하세요>>");
+                        String name = sc.next();
+                        HorseInfo hi = new HorseInfo();
+                        HorseInfo.setName;
+                    }else if(select==2){  
+                    	int min = 0; int max = 4;
+                    	System.out.println("======경기를 시작합니다======");
+                    	System.out.println("press enter to continu");
+                    	Black bk = new Black(max, min);
+                    	Blue bl = new Blue(max, min);
+                    	MyHorse mh = new MyHorse(max, min);
+                    	Red rd = new Red(max, min);
+                    	White wh = new White(max, min);
+                        while(true) {
+                        	Horse hs ;
+                        	hs.move(bk);
+                        }
+                    }else if(select==3){        
                         
-                    }else if(select==2){        //경기 시퀀스(각 경기마다 도달 등수를 저장)
-                        
-                    }else if(select==3){        //setter 를 이용하여 말의 정보를 수정 (random의 범위 , 최소값)
-                        
-                    }else if(select==4){        //model 에 입력된 값을 db 에 저장.
+                    }else if(select==4){        
                         
                     }else System.out.println("입력오류");
                 }

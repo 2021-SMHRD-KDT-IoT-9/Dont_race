@@ -1,4 +1,4 @@
-package model;
+package horseControll;
 
 public interface Horse {
 	public String name();
