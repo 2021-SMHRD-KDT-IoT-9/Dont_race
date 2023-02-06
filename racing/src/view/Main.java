@@ -2,38 +2,47 @@ package view;
 
 import java.util.Scanner;
 
+import DTO.HorseInfo;
+import DTO.joinInformation;
+import controller.LoginCon;
 import controller.MainControll;
-import horseControll.Black;
-import horseControll.Black;
-import horseControll.Blue;
-import horseControll.Horse;
-import horseControll.MyHorse;
-import horseControll.Red;
-import horseControll.White;
-
 
 public class Main {
 	public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        boolean isLogin = false;
+        MainControll mc = new MainControll();
+        LoginCon lc= new LoginCon(); 
+        HorseInfo hi = new HorseInfo();
+        
         System.out.println("------경마 시뮬레이션------");
+        
         while(true){
             System.out.println("[1]로그인 [2]회원가입 [3]종료 ");
             int choice = sc.nextInt();
             if(choice == 1){                //로그인 시퀀스 , (배팅게임일시) 파산계정으로 로그인시 로그인 거부
-                isLogin = true;
+            	System.out.print("ID : ");
+            	String id = sc.next();
+            	System.out.print("PW : ");
+            	String pw = sc.next();
+            	lc.Login(id, pw);
                 break;                      //DTO - > DAO  
             }else if(choice == 2){          //회원가입 시퀀스
-
+            	System.out.print("ID : ");
+            	String id = sc.next();
+            	System.out.print("PW : ");
+            	String pw = sc.next();
+            	System.out.print("NAME : ");
+            	String name = sc.next();
+            	lc.Join(id, pw, name);
+            	
             }else if(choice == 3){
                 System.out.println("종료합니다.");
-                isLogin = false;
                 break;
             }else System.out.println("입력오류");
         }
         
 
-        while(isLogin){                     //경마(육성)-->
+        while(lc.getIslogIn()){                     //경마(육성)-->
             System.out.println("      ------------Main--------------  ");
             System.out.println("[1]게임시작! [2]리더보드 [3]설정 [4]종료");
             int choice = sc.nextInt();
@@ -48,18 +57,18 @@ public class Main {
                     if(select == 1){			//경기 시퀀스(각 경기마다 도달 등수를 저장)
                         System.out.print("말이름을 입력하세요>>");
                         String name = sc.next();
+                        hi.setName(name);
+                        hi.setId(lc.getLoginId());
 
                     }else if(select==2){  
                     	System.out.println("======경기를 시작합니다======");
-                    	System.out.println("press enter to continu");
-
-                    	MainControll mc = new MainControll();
+                    	System.out.println("press enter to continu");                  	
+                    	mc = new MainControll();
                     	mc.run();
-
                     }else if(select==3){        
                         
                     }else if(select==4){        
-                    	MainControll mc = new MainControll();
+                    	mc = new MainControll();
                     	System.out.println("[1]최소 속도 훈련 [2]최대 속도 훈련");
                     	int temp = sc.nextInt();
                     	if(temp==1) {

@@ -15,7 +15,8 @@ public class MainControll {
 	private int min = 1;
 	private int myMax = 4;
 	private int myMin = 1;
-
+	private int fieldSize = 20;
+	ArrayList<String> rank = new ArrayList<>();
 	public void run() {
 		MyHorse mh = new MyHorse(myMax, myMin);
 		Black bk = new Black(max, min);
@@ -28,7 +29,6 @@ public class MainControll {
 		String blRuned = "";
 		String rdRuned = "";
 		String whRuned = "";
-		ArrayList<String> rank = new ArrayList<>();
 		while (true) {
 			Scanner sc = new Scanner(System.in);
 			String input = sc.nextLine();
@@ -40,23 +40,33 @@ public class MainControll {
 			whRuned += wh.move(wh, input);
 			
 			
-			
-			if(bkRuned.length() >= 30) {
-				bkRuned = "------------------------------";
-				rank.add(bkRuned);
+			String temp = "";
+			if(bkRuned.length() >= fieldSize) {
+				temp = extracted(temp);
+				bkRuned = temp;
+				rank.add(bk.name());
 			}
-			if(blRuned.length() >= 30) {
-				blRuned = "------------------------------";
+			if(blRuned.length() >= fieldSize) {
+				temp = extracted(temp);
+				blRuned = temp;
+				rank.add(bl.name());
 			}
-			if(mhRuned.length() >= 30) {
-				mhRuned = "------------------------------";
+			if(mhRuned.length() >= fieldSize) {
+				temp = extracted(temp);
+				mhRuned = temp;
+				rank.add(mh.name());
 			}
-			if(rdRuned.length() >= 30) {
-				rdRuned = "------------------------------";
+			if(rdRuned.length() >= fieldSize) {
+				temp = extracted(temp);
+				rdRuned = temp;
+				rank.add(rd.name());
 			}
-			if(whRuned.length() >= 30) {
-				whRuned = "------------------------------";
+			if(whRuned.length() >= fieldSize) {
+				temp = extracted(temp);
+				whRuned = temp;
+				rank.add(wh.name());
 			}
+		
 
 			System.out.println(bkRuned + ">");
 			System.out.println(blRuned + ">");
@@ -64,15 +74,27 @@ public class MainControll {
 			System.out.println(rdRuned + ">");
 			System.out.println(whRuned + ">");
 
-			if (mhRuned.length() >= 30 && bkRuned.length() >= 30 && blRuned.length() >= 30 && rdRuned.length() >= 30
-					&& whRuned.length() >= 30) {
+			if (mhRuned.length() >= fieldSize && bkRuned.length() >= fieldSize && blRuned.length() >= fieldSize && rdRuned.length() >= fieldSize
+					&& whRuned.length() >= fieldSize) {
 				break;
 			}
 
 		}
 		min++;
 		max++;
+		fieldSize+=2;
 	}
+	private void sortedArray() {
+		//중복 탐색 메서드
+	}
+
+	private String extracted(String temp) {
+		for(int i = 0 ; i< fieldSize ; i++) {
+			temp += "-";
+		}
+		return temp;
+	}
+
 
 	public int trainMin() {
 		Random rm = new Random();
@@ -94,5 +116,7 @@ public class MainControll {
 	public void name() {
 		// 게임진행 메서드.
 	}
+
+
 
 }

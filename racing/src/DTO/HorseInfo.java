@@ -29,7 +29,9 @@ public class HorseInfo {
 		this.rank = rank;
 		this.id = id;
 	}
-	
+	public HorseInfo() {
+		
+	}
 	
 	public void setName(String name) {
 		this.name = name;

@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import DTO.joinInformation;
 
 public class JoinDAO {
-	PreparedStatement psmt = null;
-	Connection conn = null;
-	ResultSet rs = null;
+	PreparedStatement psmt;
+	Connection conn;
+	ResultSet rs;
 	boolean result;
 	int row = 0;
 	/* 회원가입 */
@@ -22,9 +22,9 @@ public class JoinDAO {
 
 			String sql = "insert into 회원정보 values (?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getName());
-			psmt.setString(2, dto.getId());
-			psmt.setString(3, dto.getPw());
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
+			psmt.setString(3, dto.getName());
 
 			row = psmt.executeUpdate();
 
@@ -88,7 +88,7 @@ public class JoinDAO {
 	private void connection() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@222.102.104.228:1521:xe";
 			String db_id = "c##horsegame";
 			String db_pw = "12345";
 			conn = DriverManager.getConnection(url, db_id, db_pw);
