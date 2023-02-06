@@ -6,7 +6,12 @@ import java.util.Scanner;
 public class Black implements Horse{
 	private int max;
 	private int min;
-	private String line;
+	private String line = "";
+	
+	public Black(int max, int min) {
+		this.max = max;
+		this.min = min;
+	}
 	
 	
 	@Override
@@ -25,8 +30,6 @@ public class Black implements Horse{
               for(int i =min; i< ran1; i++){
                   line+="-";
               }
-              System.out.print(line+">");
-              System.out.println();
 	} 
           return line;
 

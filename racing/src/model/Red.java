@@ -7,6 +7,14 @@ public class Red implements Horse{
 	private int max;
 	private int min;
 	private String line;
+	
+	
+
+	public Red(int max, int min) {
+		super();
+		this.max = max;
+		this.min = min;
+	}
 
 	@Override
 	public String name() {
@@ -24,10 +32,7 @@ public class Red implements Horse{
               for(int i =min; i< ran1; i++){
                   line+="-";
               }
-              System.out.print(line+">");
-              System.out.println();
-		
-		
+
 	}
           return line;
 
