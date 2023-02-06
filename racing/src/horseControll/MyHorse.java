@@ -20,11 +20,9 @@ public class MyHorse implements Horse{
 	@Override
 	public String name() {
 		// TODO Auto-generated method stub
-<<<<<<< HEAD
+
 		return "";          //HorseInfo.getName;
-=======
-		return hi.getName();
->>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
+
 	}
 	
 	public void setMax(int max) {

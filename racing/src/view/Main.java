@@ -40,7 +40,7 @@ public class Main {
             if(choice == 1){
                 // game ending 조건 -- 일정 경기수를 도달하면 종료 || 계획된 경기수를 도달 못하면 종료 
                 while(true){
-                    System.out.println("                  =======Game Start=======");
+                    System.out.println("          =======Game Start=======");
                     System.out.println("[1]내 말 만들기 [2]경기Start [3]말 확인(경기 이력+) [4]말 훈련 [5]저장하고 Main 으로 돌아가기");
                     // 1 이나 3 입력시 정해진 턴수를 차감.
                     // 턴수가 지나감에따라 computer의 말들의 data 수정 (random의 범위 , 최소값)
@@ -48,12 +48,7 @@ public class Main {
                     if(select == 1){			//경기 시퀀스(각 경기마다 도달 등수를 저장)
                         System.out.print("말이름을 입력하세요>>");
                         String name = sc.next();
-<<<<<<< HEAD
-//                        HorseInfo hi = new HorseInfo();
-//                        HorseInfo.setName;
-=======
-                        hd.insert(name);
->>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
+
                     }else if(select==2){  
                     	int min = 0; int max = 4;
                     	System.out.println("======경기를 시작합니다======");
@@ -63,15 +58,7 @@ public class Main {
                     	MyHorse mh = new MyHorse(max, min);
                     	Red rd = new Red(max, min);
                     	White wh = new White(max, min);
-                        while(true) {
-<<<<<<< HEAD
-                        	Horse hs = null ;
-                        	hs.move();
-=======
-                        	Horse hs ;
-//                        	hs.move(bk);
->>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
-                        }
+                       
                     }else if(select==3){        
                         
                     }else if(select==4){        
