@@ -1,10 +1,10 @@
 package controller;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import horseControll.Black;
 import horseControll.Blue;
-import horseControll.Horse;
 import horseControll.MyHorse;
 import horseControll.Red;
 import horseControll.White;
@@ -27,29 +27,36 @@ public class MainControll {
     	String blRuned = "";
     	String rdRuned = "";
     	String whRuned = "";
-    	
+    	ArrayList<String> arr = new ArrayList<>();
         while(true) {
         	Scanner sc = new Scanner(System.in);
         	String input = sc.nextLine();
-        	mhRuned+=mh.move(mh,input);
+        	
         	bkRuned+=bk.move(bk,input);
         	blRuned+=bl.move(bl,input);
         	rdRuned+=rd.move(rd,input);
         	whRuned+=wh.move(wh,input);
         	
-        	System.out.println(mhRuned + ">");
-        	System.out.println();
+        	if(mhRuned.length()<=19) {
+        		mhRuned+=mh.move(mh,input);
+        	}else {
+        		mhRuned.substring(0,19);
+        		arr.add(mh.name());
+
+        	}
+        	
+        	
         	System.out.println(bkRuned + ">");
-        	System.out.println();
         	System.out.println(blRuned + ">");
-        	System.out.println();
+        	System.out.println(mhRuned + ">");//나의 말
         	System.out.println(rdRuned + ">");
-        	System.out.println();
         	System.out.println(whRuned + ">");
-        	System.out.println();
+        	
+        	
         	if(mhRuned.length()>=20||bkRuned.length()>=20||blRuned.length()>=20||rdRuned.length()>=20||whRuned.length()>=20) {
         		break;
         	}
+        	
         	
         }
 	}
