@@ -3,12 +3,7 @@ package view;
 import java.util.Scanner;
 
 import controller.MainControll;
-//import horseControll.Black;
-//import horseControll.Blue;
-//import horseControll.Horse;
-//import horseControll.MyHorse;
-//import horseControll.Red;
-//import horseControll.White;
+
 
 public class Main {
 	public static void main(String[] args) {
