@@ -58,7 +58,7 @@ public class Main {
                     	White wh = new White(max, min);
                         while(true) {
                         	Horse hs ;
-                        	hs.move(bk);
+                        	hs.move();
                         }
                     }else if(select==3){        
                         
