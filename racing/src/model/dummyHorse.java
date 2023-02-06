@@ -21,14 +21,14 @@ public class dummyHorse {
             if(input.equals("")){
                 int ran1 = 0;
                 ran1 = rm.nextInt(4);
-                for(int i =0; i< ran1; i++){
+                for(int i =1; i< ran1; i++){
                     line1+="-";
                 }
                 h1+=ran1;
                 System.out.print(line1+">");
                 System.out.println();
 
-
+//============================================================================
                 int ran2 = 0;
                 ran2 = rm.nextInt(4);
                 for(int i =0; i< ran2; i++){
@@ -38,7 +38,7 @@ public class dummyHorse {
                 System.out.print(line2+">");
                 System.out.println();
 
-
+//============================================================================
                 int ran3= 0;
                 ran3 = rm.nextInt(4);
                 for(int i =0; i< ran3; i++){
