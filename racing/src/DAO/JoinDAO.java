@@ -12,43 +12,91 @@ public class JoinDAO {
 	PreparedStatement psmt = null;
 	Connection conn = null;
 	ResultSet rs = null;
-	
+	boolean result;
+	int row = 0;
+	/* 회원가입 */
 	public int join(joinInformation dto) {
-		int row = 0;
-			try {
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-				String url = "jdbc:oracle:thin:@localhost:1521:xe";
-				String db_id = "system";
-				String db_pw = "12345";
-				conn = DriverManager.getConnection(url, db_id,db_pw);
-				
-				
-				String sql = "insert into join values (?, ?, ?)";
-				psmt = conn.prepareStatement(sql);
-				psmt.setString(1, dto.getName());
-				psmt.setString(2, dto.getId());
-				psmt.setString(3, dto.getPw());
-				
-				row = psmt.executeUpdate(); 
-				
-			} catch (ClassNotFoundException e) {
-				System.out.println("로딩 실패");
-			} catch (SQLException e) {
-				System.out.println("권한 실패");
-				
-			}finally {
-				// 3. 자원 반납 : 사용한 역순으로 
-				try {
-					if(psmt != null) {
-						psmt.close();
-					}
-					if(conn != null)
-						conn.close();
-				} catch (SQLException e) {
-					System.out.println("자원 반납의 오류");
-					e.printStackTrace();
-				}
-			}return row;
+		connection();
+		row = 0;
+		try {
+
+			String sql = "insert into join values (?, ?, ?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getName());
+			psmt.setString(2, dto.getId());
+			psmt.setString(3, dto.getPw());
+
+			row = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("권한 실패");
+
+		} finally {
+			close();
+		}
+		return row;
+
+	}
+	/* 로그인 */
+	public boolean Login(joinInformation dto) {
+		connection();
+		try {
+			String sql = "select * from 회원정보 where id=? and pw=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
 			
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				result = true;
+			}else {
+				result = false;
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("DB 오류");
+		}finally {
+			close();
+		}
+		return result;
+	}
+
+	
+	
+	
+	
+	
+	
+	private void close() {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (psmt != null) {
+				psmt.close();
+			}
+			if (conn != null)
+				conn.close();
+		} catch (SQLException e) {
+			System.out.println("자원 반납의 오류");
+			e.printStackTrace();
+		}
+	}
+
+
+	private void connection() {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String db_id = "c##horsegame";
+			String db_pw = "12345";
+			conn = DriverManager.getConnection(url, db_id, db_pw);
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("클래스 오류");
+		} catch (SQLException e) {
+			System.out.println("DB연동 실패");
+		}
 	}
 }

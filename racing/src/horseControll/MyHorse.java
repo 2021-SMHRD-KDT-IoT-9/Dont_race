@@ -3,11 +3,14 @@ package horseControll;
 import java.util.Random;
 import java.util.Scanner;
 
+import DTO.HorseInfo;
+
 public class MyHorse implements Horse{
 	private int max;
 	private int min;
 	private String line = ""; 
 	
+	HorseInfo hi;
 	public MyHorse(int max, int min) {
 		super();
 		this.max = max;
@@ -17,7 +20,9 @@ public class MyHorse implements Horse{
 	@Override
 	public String name() {
 		// TODO Auto-generated method stub
+
 		return "sl";
+
 	}
 	
 	public void setMax(int max) {
