@@ -1,24 +1,32 @@
-package model;
+package horseControll;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class Red implements Horse{
+public class Black implements Horse{
 	private int max;
 	private int min;
-	private String line;
+	private String line = "";
 	
-	
-
-	public Red(int max, int min) {
-		super();
+	public Black(int max, int min) {
 		this.max = max;
 		this.min = min;
 	}
+	
+	
+	public void setMax(int max) {
+		this.max = max;
+	}
+
+
+	public void setMin(int min) {
+		this.min = min;
+	}
+
 
 	@Override
 	public String name() {
-		return "적토마";
+		return "흑토마";
 	}
 
 	@Override
@@ -32,8 +40,7 @@ public class Red implements Horse{
               for(int i =min; i< ran1; i++){
                   line+="-";
               }
-
-	}
+	} 
           return line;
 
 }

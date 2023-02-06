@@ -1,4 +1,4 @@
-package model;
+package horseControll;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -18,6 +18,15 @@ public class Blue implements Horse{
 	public String name() {
 		// TODO Auto-generated method stub
 		return "청마";
+	}
+	
+	public void setMax(int max) {
+		this.max = max;
+	}
+
+
+	public void setMin(int min) {
+		this.min = min;
 	}
 
 	@Override
