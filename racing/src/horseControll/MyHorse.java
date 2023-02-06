@@ -17,7 +17,7 @@ public class MyHorse implements Horse{
 	@Override
 	public String name() {
 		// TODO Auto-generated method stub
-		return HorseInfo.getName;
+		return "";          //HorseInfo.getName;
 	}
 	
 	public void setMax(int max) {
