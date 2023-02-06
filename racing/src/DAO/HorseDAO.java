@@ -103,6 +103,8 @@ public class HorseDAO {
 			System.out.println("닫기 실패");
 		}
 	}
+
+	
 }
 
 
