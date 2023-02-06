@@ -14,26 +14,25 @@ public class HorseDAO {
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
-	int cnt = 0;
+	int row = 0;
 	boolean result;
 
-	// 말이름
-	public int insert(HorseInfo name) {
-
-		connection(); 
-
+	// 말이름, 기록 저장
+	
+	public int insert(HorseInfo dto) {
+		connection();
 		try {
-			String sql = "insert into 말 values(?)";
+			row = 0;
+			String sql = "insert into 말 values(?, ?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 
-			
-			String name2 = name.getName();
-			
-			
-			psmt.setString(1, name2);
-			
+			psmt.setString(1, dto.getName());
+			psmt.setInt(2, dto.getRank());
+			psmt.setInt(3, dto.getMin());
+			psmt.setInt(4, dto.getMax());
+			psmt.setString(5, dto.getId());
 
-			cnt = psmt.executeUpdate();
+			row = psmt.executeUpdate();
 
 		} catch (SQLException e) {
 			System.out.println("SQL오류 발생");
@@ -42,16 +41,33 @@ public class HorseDAO {
 
 		}
 
-		return cnt;
+		return row;
 	}
-	// 랭킹
-	
-	//max
-	
-	//min
-
-	
-	
+	// 기록 조회
+	public String recode () {
+		String data = "NAME\tRANK\tMIN\tMAX\n";
+		connection();
+		try {
+			String sql = "select * from 말";
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			
+			while(rs.next()) {
+				String name= rs.getString(1);
+				int rank = rs.getInt(2);
+				int min = rs.getInt(3);
+				int max = rs.getInt(4);
+				
+				data += String.format("%s\t%d\t%d\t%d\n", name, rank, min, max);
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("SQL 오류");
+		}finally {
+			close();
+		}return data;
+	}
 
 	
 	
@@ -84,7 +100,7 @@ public class HorseDAO {
 				conn.close();
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("닫기 실패");
 		}
 	}
 }
