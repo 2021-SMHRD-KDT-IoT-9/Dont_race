@@ -21,11 +21,11 @@ public class MyHorse implements Horse{
 	public String name() {
 		// TODO Auto-generated method stub
 
-<<<<<<< HEAD
+
 		return "";          //HorseInfo.getName;
-=======
-		return "sl";
->>>>>>> branch 'main' of https://github.com/2021-SMHRD-KDT-IoT-9/Dont_race.git
+
+
+
 
 	}
 	
