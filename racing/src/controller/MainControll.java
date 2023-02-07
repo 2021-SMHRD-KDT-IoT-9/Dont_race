@@ -19,7 +19,7 @@ public class MainControll {
 	private int myMax = 5;
 	private int myMin = 1;
 	private int fieldSize = 20;
-	private int trun;
+	private int turn;
 	private int win;
 	private int loss;
 	ArrayList<String> rank = new ArrayList<>();
@@ -94,7 +94,7 @@ public class MainControll {
 		min++;
 		max++;
 		fieldSize+=2;
-		trun++;
+		turn++;
 	}
 	public void sortedArray() {
 	LinkedHashSet<String> rank_Hs = new LinkedHashSet<>(rank);	
@@ -146,7 +146,9 @@ public class MainControll {
 	public int getLoss() {
 		return loss;
 	}
-	
+	public int getturn() {
+		return turn;
+	}
 
 
 
