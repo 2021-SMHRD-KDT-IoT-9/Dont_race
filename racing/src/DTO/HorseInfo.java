@@ -21,6 +21,11 @@ public class HorseInfo {
 	}
 
 
+	public HorseInfo() {
+		super();
+	}
+
+
 	public HorseInfo(String name, int max, int min, int rank, String id) {
 		super();
 		this.name = name;

@@ -80,21 +80,15 @@ public class MainControll {
         	
         }
         Rank rk = new Rank();
+        HorseInfo hn = new HorseInfo();
         for(int i = 0; i<arr.size(); i++) {
         rk.setName(arr.get(i));
         rk.setRank(i+1);
         
+        
         }
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+     
         
 	}
 }
