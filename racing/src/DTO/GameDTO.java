@@ -3,10 +3,20 @@ package DTO;
 public class GameDTO {
 	private int max;
 	private int min;
+	private int myMax;
+	private int myMin;
 	private int fieldSize;
 	private int trun;
 	private int win;
 	private int loss;
+	private int gameCount;
+	
+	public int getGameCount() {
+		return gameCount;
+	}
+	public void setGameCount(int gameCount) {
+		this.gameCount = gameCount;
+	}
 	public int getMax() {
 		return max;
 	}
@@ -42,6 +52,18 @@ public class GameDTO {
 	}
 	public void setLoss(int loss) {//sd
 		this.loss = loss;
+	}
+	public int getMyMax() {
+		return myMax;
+	}
+	public void setMyMax(int myMax) {
+		this.myMax = myMax;
+	}
+	public int getMyMin() {
+		return myMin;
+	}
+	public void setMyMin(int myMin) {
+		this.myMin = myMin;
 	}
 	
 }

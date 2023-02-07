@@ -3,26 +3,18 @@ package horseControll;
 import java.util.Random;
 import java.util.Scanner;
 
+import DTO.GameDTO;
+
 public class Red implements Horse{
 	private int max;
 	private int min;
 	
-	
 
-	public Red(int max, int min) {
-		super();
-		this.max = max;
-		this.min = min;
+	public Red(GameDTO gd ) {
+		this.max = gd.getMax();
+		this.min = gd.getMin();
 	}
 	
-	public void setMax(int max) {
-		this.max = max;
-	}
-
-
-	public void setMin(int min) {
-		this.min = min;
-	}
 
 	@Override
 	public String name() {

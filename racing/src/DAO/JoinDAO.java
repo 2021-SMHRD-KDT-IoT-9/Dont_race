@@ -22,9 +22,9 @@ public class JoinDAO {
 
 			String sql = "insert into 회원정보 values (?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, dto.getId());
+			psmt.setString(1, dto.getName());
 			psmt.setString(2, dto.getPw());
-			psmt.setString(3, dto.getName());
+			psmt.setString(3, dto.getId());
 
 			row = psmt.executeUpdate();
 
@@ -85,18 +85,19 @@ public class JoinDAO {
 	}
 
 
-	private void connection() {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@222.102.104.228:1521:xe";
-			String db_id = "c##horsegame";
-			String db_pw = "12345";
-			conn = DriverManager.getConnection(url, db_id, db_pw);
-
-		} catch (ClassNotFoundException e) {
-			System.out.println("클래스 오류");
-		} catch (SQLException e) {
-			System.out.println("DB연동 실패");
-		}
-	}
+	   private void connection() {
+		      try {
+		         Class.forName("oracle.jdbc.driver.OracleDriver");
+		         String url = "jdbc:oracle:thin:@ project-db-stu3.ddns.net :1525:xe";
+		         String db_id = "campus_b_0203_3";
+		         String db_pw = "smhrd3";
+		         conn = DriverManager.getConnection(url, db_id, db_pw);
+		         
+		      } catch (ClassNotFoundException e) {
+		         System.out.println("클래스 오류");
+		      } catch (SQLException e) {
+		         System.out.println("DB연동 실패");
+		      }
+		   }
+		   
 }

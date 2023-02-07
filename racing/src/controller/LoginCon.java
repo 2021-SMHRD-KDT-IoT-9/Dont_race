@@ -13,10 +13,11 @@ public class LoginCon {
 		int row = dao.join(dto);
 		if (row > 0) {
 			System.out.println("회원가입 성공!");
+			isLogin=true;
 			
 		} else {
 			System.out.println("회원가입 실패!");
-			
+			isLogin=false;
 		}
 	}
 	public boolean getIslogIn() {

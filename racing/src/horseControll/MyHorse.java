@@ -3,37 +3,27 @@ package horseControll;
 import java.util.Random;
 import java.util.Scanner;
 
+import DTO.GameDTO;
 import DTO.HorseInfo;
 
 public class MyHorse implements Horse{
 	private int max;
 	private int min;
-	HorseInfo hi = new HorseInfo();
 	
-	public MyHorse(int max, int min) {
+	public MyHorse(GameDTO gd) {
 		super();
-		this.max = max;
-		this.min = min;
+		this.max = gd.getMyMax();
+		this.min = gd.getMyMin();
 	}
 
 	@Override
 	public String name() {
 		// TODO Auto-generated method stub
-		return hi.getName();          //HorseInfo.getName;
-
-
+		return "사용자";          //HorseInfo.getName;
 
 
 	}
 	
-	public void setMax(int max) {
-		this.max = max;
-	}
-
-
-	public void setMin(int min) {
-		this.min = min;
-	}
 
 	@Override
 	public String move(Horse hs,String input) {

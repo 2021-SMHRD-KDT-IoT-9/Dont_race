@@ -2,9 +2,9 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.Random;
 import java.util.Scanner;
 
+import DAO.RankDAO;
 import DTO.GameDTO;
 import DTO.HorseInfo;
 import horseControll.Black;
@@ -14,147 +14,102 @@ import horseControll.Red;
 import horseControll.White;
 
 public class MainControll {
-	private int max = 4;
-	private int min = 1;
-	private int myMax = 5;
-	private int myMin = 1;
-	private int fieldSize = 20;
-	private int trun;
-	private int win;
-	private int loss;
-	public int getTrun() {
-		return trun;
-	}
-	public void run(HorseInfo hi, GameDTO gd) {
-		ArrayList<String> rank = new ArrayList<>();
-		MyHorse mh = new MyHorse(hi.getMax(), hi.getMin());
-		Black bk = new Black(gd.getMax(), gd.getMin());
-		Blue bl = new Blue(max, min);
-		Red rd = new Red(max, min);
-		White wh = new White(max, min);
-		
-//		HorseInfo hi = new HorseInfo();
-		String mhRuned = "";
-		String bkRuned = "";
-		String blRuned = "";
-		String rdRuned = "";
-		String whRuned = "";
-		while (true) {
-			Scanner sc = new Scanner(System.in);
-			String input = sc.nextLine();
-			
-			bkRuned += bk.move(bk, input);
-			blRuned += bl.move(bl, input);
-			mhRuned += mh.move(mh, input);
-			rdRuned += rd.move(rd, input);
-			whRuned += wh.move(wh, input);
-			
-			
-			
-			if(bkRuned.length() >= fieldSize) {
-				bkRuned = extracted(fieldSize);
-				rank.add(bk.name());
-			}
-			
-			if(blRuned.length() >= fieldSize) {
-				blRuned = extracted(fieldSize);
-				rank.add(bl.name());
-			}
-			
-			if(mhRuned.length() >= fieldSize) {
-				mhRuned = extracted(fieldSize);
-				rank.add(hi.getName());
-			}
-			
-			if(rdRuned.length() >= fieldSize) {
-				rdRuned = extracted(fieldSize);
-				rank.add(rd.name());
-			}
-			
-			if(whRuned.length() >= fieldSize) {
-				whRuned = extracted(fieldSize);
-				rank.add(wh.name());
-			}
-		
+   RankDAO rdao = new RankDAO();
+   public void run(HorseInfo hi,GameDTO gi) {
+      MyHorse mh = new MyHorse(gi);
+      Black bk = new Black(gi);
+      Blue bl = new Blue(gi);
+      Red rd = new Red(gi);
+      White wh = new White(gi);
+      String mhRuned = "";
+      String bkRuned = "";
+      String blRuned = "";
+      String rdRuned = "";
+      String whRuned = "";
+      ArrayList<String> rank = new ArrayList<>();
+      while (true) {
+         Scanner sc = new Scanner(System.in);
+         String input = sc.nextLine();
 
-			System.out.println(bkRuned + "> "+bk.name());
-			System.out.println(blRuned + "> "+bl.name());
-			System.out.println(mhRuned + "> "+hi.getName());// 나의 말
-			System.out.println(rdRuned + "> "+rd.name());
-			System.out.println(whRuned + "> "+wh.name());
-			
-		   
+         bkRuned += bk.move(bk, input);
+         blRuned += bl.move(bl, input);
+         mhRuned += mh.move(mh, input);
+         rdRuned += rd.move(rd, input);
+         whRuned += wh.move(wh, input);
+         
+         
+         
+         if(bkRuned.length() >= gi.getFieldSize()) {
+            bkRuned = extracted(gi.getFieldSize());
+            rank.add(bk.name());
+         }
+         
+         if(blRuned.length() >= gi.getFieldSize()) {
+            blRuned = extracted(gi.getFieldSize());
+            rank.add(bl.name());
+         }
+         
+         if(mhRuned.length() >= gi.getFieldSize()) {
+            mhRuned = extracted(gi.getFieldSize());
+            rank.add(hi.getName());
+         }
+         
+         if(rdRuned.length() >= gi.getFieldSize()) {
+            rdRuned = extracted(gi.getFieldSize());
+            rank.add(rd.name());
+         }
+         
+         if(whRuned.length() >= gi.getFieldSize()) {
+            whRuned = extracted(gi.getFieldSize());
+            rank.add(wh.name());
+         }
+      
 
-			if (mhRuned.length() >= fieldSize && bkRuned.length() >= fieldSize && blRuned.length() >= fieldSize && rdRuned.length() >= fieldSize
-					&& whRuned.length() >= fieldSize) {
-				break;
-			}
+         System.out.println(mhRuned + "> "+hi.getName());// 나의 말
+         System.out.println(bkRuned + "> "+bk.name());
+         System.out.println(blRuned + "> "+bl.name());
+         System.out.println(rdRuned + "> "+rd.name());
+         System.out.println(whRuned + "> "+wh.name());
+         
+         
 
-		}
-		
+         if (mhRuned.length() >= gi.getFieldSize() && bkRuned.length() >= gi.getFieldSize() && blRuned.length() >= gi.getFieldSize() && rdRuned.length() >= gi.getFieldSize()
+               && whRuned.length() >= gi.getFieldSize()) {
+            break;
+         
+         }
+         
+      }
+      gi.setGameCount(gi.getGameCount()+1);
+      gi.setMin(gi.getMin()+1);
+      gi.setMax(gi.getMax()+1);
+      gi.setFieldSize(gi.getFieldSize()+2);
+      gi.setTrun(gi.getTrun()+1);      
+      LinkedHashSet<String> rank_Hs = new LinkedHashSet<>(rank);   
+      rank.clear();
+      
+      rank.addAll(rank_Hs);   
+      
+      for(int i = 0; i<rank.size(); i++) {
+    	  System.out.println((i+1)+ "등 : " + rank.get(i));
+      }
+      rdao.leaderboard(rank.get(0), rank.get(1), rank.get(2), rank.get(3), rank.get(4),gi);
+      if(rank.get(0).equals(hi.getName())) {
+         gi.setWin(gi.getWin()+1);
+      }else {
+         gi.setLoss(gi.getLoss()+1);
+      }
+      
 
-		min++;
-		
-		max++;
-		gd.setMax(gd.getMax()+1);
-		fieldSize+=2;
-		trun++;
-		LinkedHashSet<String> rank_Hs = new LinkedHashSet<>(rank);	
-		rank.clear();
-		rank.addAll(rank_Hs);	
-		if(rank.get(0).equals(hi.getName())) {
-			win++;
-		}else loss++;
-		for(int i = 0; i<rank.size(); i++) {
-			System.out.println((i+1)+ " 등 : " + rank.get(i));
-		}
-		
-	}
+   }
 
-	public void ranked() {
-
-	}
-
-	private String extracted(int fieldSize) {
-		String bar = "";
-		for(int i = 0 ; i<= fieldSize ; i++) {
-			bar += "-";
-		}
-		return bar;
-	}
-
-
-	public int trainMin() {
-		Random rm = new Random();
-		int ran = rm.nextInt(3);
-		myMin += ran;
-		min++;
-		trun++;
-		return ran;
-
-	}
-
-	public int trainMax() {
-		Random rm = new Random();
-		int ran = rm.nextInt(3);
-		myMax += ran;
-		max++;
-		trun++;
-		return ran;
-	}
-	public int getMyMax() {
-		return myMax;
-	}
-	public int getMyMin() {
-		return myMin;
-	}
-	public int getWin() {
-		return win;
-	}
-	public int getLoss() {
-		return loss;
-	}
-	
+   private String extracted(int fieldSize) {
+      String bar = "";
+      for(int i = 0 ; i<= fieldSize ; i++) {
+         bar += "-";
+      }
+      return bar;
+   }
 
 
 
