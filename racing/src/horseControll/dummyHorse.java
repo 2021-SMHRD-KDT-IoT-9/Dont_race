@@ -20,7 +20,7 @@ public class dummyHorse {
             String input = sc.nextLine();
             if(input.equals("")){
                 int ran1 = 0;
-                ran1 = rm.nextInt(4);
+                ran1 = rm.nextInt(4)+1;
                 for(int i =1; i< ran1; i++){
                     line1+="-";
                 }
@@ -30,7 +30,7 @@ public class dummyHorse {
 
 //============================================================================
                 int ran2 = 0;
-                ran2 = rm.nextInt(4);
+                ran2 = rm.nextInt(4)+1;
                 for(int i =0; i< ran2; i++){
                     line2+="-";
                 }

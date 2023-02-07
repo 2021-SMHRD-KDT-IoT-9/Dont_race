@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Black implements Horse{
 	private int max;
 	private int min;
-	private String line = "";
 	
 	public Black(int max, int min) {
 		this.max = max;
@@ -31,6 +30,7 @@ public class Black implements Horse{
 
 	@Override
 	public String move(Horse hs,String input) {
+		String line  = "";
 		Random rm = new Random();
           if(input.equals("")){
               int ran1 = 0;
@@ -38,7 +38,7 @@ public class Black implements Horse{
   				ran1 = rm.nextInt(max);
   				if(ran1>min) break;
   			}
-              for(int i =min; i< ran1; i++){
+              for(int i =min; i<= ran1; i++){
                   line+="-";
               }
 	} 

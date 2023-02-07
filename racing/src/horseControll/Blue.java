@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Blue implements Horse{
 	private int max;
 	private int min;
-	private String line = ""; 
+	
 	
 	public Blue(int max, int min) {
 		super();
@@ -32,13 +32,14 @@ public class Blue implements Horse{
 	@Override
 	public String move(Horse hs,String input) {
 		Random rm = new Random();
+		String line  = "";
 		if(input.equals("")){
 			int ran1 = 0;
 			while(true) {
 				ran1 = rm.nextInt(max);
 				if(ran1>min) break;
 			}
-			for(int i =min; i< ran1; i++){
+			for(int i =min; i<= ran1; i++){
 				line+="-";
 			}
 		}

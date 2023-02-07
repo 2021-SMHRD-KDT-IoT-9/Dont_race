@@ -13,8 +13,14 @@ public class HorseInfo {
 	
 
 
-	public HorseInfo(String name, int game, int min, int max, String id,int rank) {
-		
+
+
+
+
+
+	public HorseInfo(String name, int max, int min, int rank, String id, int game) {
+		super();
+
 		this.name = name;
 		this.game = game;
 		this.min = min;
