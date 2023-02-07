@@ -3,6 +3,8 @@ package controller;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import DTO.HorseInfo;
+import DTO.Rank;
 import horseControll.Black;
 import horseControll.Blue;
 import horseControll.MyHorse;
@@ -32,8 +34,6 @@ public class MainControll {
         	Scanner sc = new Scanner(System.in);
         	String input = sc.nextLine();
         		
-        	
-        	whRuned+=wh.move(wh,input);
         	
         	if(mhRuned.length()<=19) {
         		mhRuned+=mh.move(mh,input);
@@ -78,7 +78,23 @@ public class MainControll {
         		break;
         	}
         	
-        	
         }
+        Rank rk = new Rank();
+        for(int i = 0; i<arr.size(); i++) {
+        rk.setName(arr.get(i));
+        rk.setRank(i+1);
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 	}
 }

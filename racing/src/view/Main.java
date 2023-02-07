@@ -21,7 +21,7 @@ public class Main {
             System.out.println("[1]로그인 [2]회원가입 [3]종료 ");
             int choice = sc.nextInt();
             if(choice == 1){                //로그인 시퀀스 , (배팅게임일시) 파산계정으로 로그인시 로그인 거부
-                isLogin = true;
+                isLogin = true;                
                 break;                      //DTO - > DAO  
             }else if(choice == 2){          //회원가입 시퀀스
 
@@ -52,12 +52,6 @@ public class Main {
                     }else if(select==2){  
                     	System.out.println("======경기를 시작합니다======");
                     	System.out.println("press enter to continu");
-
-                    	Black bk = new Black(max, min);
-                    	Blue bl = new Blue(max, min);
-                    	MyHorse mh = new MyHorse(max, min);
-                    	Red rd = new Red(max, min);
-                    	White wh = new White(max, min);
                        
 
                     	MainControll mc = new MainControll();
@@ -67,6 +61,8 @@ public class Main {
                         
                     }else if(select==4){        
                         
+                    }else if(select==5) {
+                    	continue ;
                     }else System.out.println("입력오류");
                 }
                 
