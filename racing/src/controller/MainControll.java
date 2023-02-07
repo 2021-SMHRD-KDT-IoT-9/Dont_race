@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -45,33 +46,23 @@ public class MainControll {
 			
 			
 			if(bkRuned.length() >= fieldSize) {
-				String temp = "";
-				temp = extracted(fieldSize);
-				bkRuned = temp;
+				bkRuned = extracted(fieldSize);
 				rank.add(bk.name());
 			}
 			if(blRuned.length() >= fieldSize) {
-				String temp = "";
-				temp = extracted(fieldSize);
-				blRuned = temp;
+				blRuned = extracted(fieldSize);
 				rank.add(bl.name());
 			}
 			if(mhRuned.length() >= fieldSize) {
-				String temp = "";
-				temp = extracted(fieldSize);
-				mhRuned = temp;
+				mhRuned = extracted(fieldSize);
 				rank.add(mh.name());
 			}
 			if(rdRuned.length() >= fieldSize) {
-				String temp = "";
-				temp = extracted(fieldSize);
-				rdRuned = temp;
+				rdRuned = extracted(fieldSize);
 				rank.add(rd.name());
 			}
 			if(whRuned.length() >= fieldSize) {
-				String temp = "";
-				temp = extracted(fieldSize);
-				whRuned = temp;
+				whRuned = extracted(fieldSize);
 				rank.add(wh.name());
 			}
 		
@@ -94,10 +85,10 @@ public class MainControll {
 		fieldSize+=2;
 	}
 	private void sortedArray() {
-		for(int i = 0; i<rank.size(); i++) {
-			
-			
-		}
+	LinkedHashSet<String> rank_Hs = new LinkedHashSet<>(rank);	
+		rank.clear();
+		
+		rank.addAll(rank_Hs);	
 		
 	}
 
