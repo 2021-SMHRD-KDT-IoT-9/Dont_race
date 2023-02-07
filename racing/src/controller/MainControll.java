@@ -15,7 +15,7 @@ public class MainControll {
 	private int min = 1;
 	private int myMax = 4;
 	private int myMin = 1;
-	private int fieldSize = 20;
+	private int fieldSize = 30;
 	ArrayList<String> rank = new ArrayList<>();
 	public void run() {
 		MyHorse mh = new MyHorse(myMax, myMin);
@@ -43,31 +43,31 @@ public class MainControll {
 			
 			if(bkRuned.length() >= fieldSize) {
 				String temp = "";
-				temp = extracted(temp);
+				temp = extracted(fieldSize);
 				bkRuned = temp;
 				rank.add(bk.name());
 			}
 			if(blRuned.length() >= fieldSize) {
 				String temp = "";
-				temp = extracted(temp);
+				temp = extracted(fieldSize);
 				blRuned = temp;
 				rank.add(bl.name());
 			}
 			if(mhRuned.length() >= fieldSize) {
 				String temp = "";
-				temp = extracted(temp);
+				temp = extracted(fieldSize);
 				mhRuned = temp;
 				rank.add(mh.name());
 			}
 			if(rdRuned.length() >= fieldSize) {
 				String temp = "";
-				temp = extracted(temp);
+				temp = extracted(fieldSize);
 				rdRuned = temp;
 				rank.add(rd.name());
 			}
 			if(whRuned.length() >= fieldSize) {
 				String temp = "";
-				temp = extracted(temp);
+				temp = extracted(fieldSize);
 				whRuned = temp;
 				rank.add(wh.name());
 			}
@@ -90,15 +90,18 @@ public class MainControll {
 		fieldSize+=2;
 	}
 	private void sortedArray() {
-		//중복 탐색 메서드
+		for(int i = 0; i<rank.size(); i++) {
+			
+		}
 		
 	}
 
-	private String extracted(String temp) {
-		for(int i = 0 ; i< fieldSize ; i++) {
-			temp += "-";
+	private String extracted(int fieldSize) {
+		String bar = "";
+		for(int i = 0 ; i<= fieldSize ; i++) {
+			bar += "-";
 		}
-		return temp;
+		return bar;
 	}
 
 
