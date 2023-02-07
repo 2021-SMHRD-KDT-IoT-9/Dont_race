@@ -20,6 +20,9 @@ public class MainControll {
 	private int myMin = 1;
 	private int fieldSize = 20;
 	private int trun;
+	public int getTrun() {
+		return trun;
+	}
 	private int win;
 	private int loss;
 	ArrayList<String> rank = new ArrayList<>();
@@ -60,7 +63,7 @@ public class MainControll {
 			
 			if(mhRuned.length() >= fieldSize) {
 				mhRuned = extracted(fieldSize);
-				rank.add(hi.getName());
+				rank.add(mh.name());
 			}
 			
 			if(rdRuned.length() >= fieldSize) {
@@ -123,6 +126,7 @@ public class MainControll {
 		int ran = rm.nextInt(3);
 		myMin += ran;
 		min++;
+		trun++;
 		return ran;
 
 	}
@@ -132,6 +136,7 @@ public class MainControll {
 		int ran = rm.nextInt(3);
 		myMax += ran;
 		max++;
+		trun++;
 		return ran;
 	}
 	public int getMyMax() {

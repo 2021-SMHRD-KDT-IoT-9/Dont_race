@@ -39,7 +39,7 @@ public class Blue implements Horse{
 				ran1 = rm.nextInt(max);
 				if(ran1>min) break;
 			}
-			for(int i =min; i<= ran1; i++){
+			for(int i =0; i<= ran1; i++){
 				line+="-";
 			}
 		}
