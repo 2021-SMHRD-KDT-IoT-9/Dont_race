@@ -21,10 +21,6 @@ public class HorseInfo {
 	}
 
 
-	public HorseInfo() {
-		super();
-	}
-
 
 	public HorseInfo(String name, int max, int min, int rank, String id) {
 		super();
@@ -34,7 +30,9 @@ public class HorseInfo {
 		this.rank = rank;
 		this.id = id;
 	}
-	
+	public HorseInfo() {
+		
+	}
 	
 	public void setName(String name) {
 		this.name = name;

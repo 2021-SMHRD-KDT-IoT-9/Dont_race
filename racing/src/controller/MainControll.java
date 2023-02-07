@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import DTO.HorseInfo;
@@ -16,7 +17,8 @@ public class MainControll {
 	private int min = 1;
 	private int myMax = 4;
 	private int myMin = 1;
-	
+	private int fieldSize = 20;
+	ArrayList<String> rank = new ArrayList<>();
 	public void run() {
 		MyHorse mh = new MyHorse(myMax,myMin);
     	Black bk = new Black(max, min);
@@ -84,11 +86,46 @@ public class MainControll {
         for(int i = 0; i<arr.size(); i++) {
         rk.setName(arr.get(i));
         rk.setRank(i+1);
-        
-        
+                
         }
         
-     
-        
+		min++;
+		max++;
+		fieldSize+=2;
 	}
+	private void sortedArray() {
+		//중복 탐색 메서드
+	}
+
+	private String extracted(String temp) {
+		for(int i = 0 ; i< fieldSize ; i++) {
+			temp += "-";
+		}
+		return temp;
+	}
+
+
+	public int trainMin() {
+		Random rm = new Random();
+		int ran = rm.nextInt(3);
+		myMin += ran;
+		min++;
+		return ran;
+
+	}
+
+	public int trainMax() {
+		Random rm = new Random();
+		int ran = rm.nextInt(3);
+		myMax += ran;
+		max++;
+		return ran;
+	}
+	
+	public void name() {
+		// 게임진행 메서드.
+	}
+
+
+
 }
