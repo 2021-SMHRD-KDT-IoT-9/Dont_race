@@ -40,28 +40,33 @@ public class MainControll {
 			whRuned += wh.move(wh, input);
 			
 			
-			String temp = "";
+			
 			if(bkRuned.length() >= fieldSize) {
+				String temp = "";
 				temp = extracted(temp);
 				bkRuned = temp;
 				rank.add(bk.name());
 			}
 			if(blRuned.length() >= fieldSize) {
+				String temp = "";
 				temp = extracted(temp);
 				blRuned = temp;
 				rank.add(bl.name());
 			}
 			if(mhRuned.length() >= fieldSize) {
+				String temp = "";
 				temp = extracted(temp);
 				mhRuned = temp;
 				rank.add(mh.name());
 			}
 			if(rdRuned.length() >= fieldSize) {
+				String temp = "";
 				temp = extracted(temp);
 				rdRuned = temp;
 				rank.add(rd.name());
 			}
 			if(whRuned.length() >= fieldSize) {
+				String temp = "";
 				temp = extracted(temp);
 				whRuned = temp;
 				rank.add(wh.name());
@@ -86,6 +91,7 @@ public class MainControll {
 	}
 	private void sortedArray() {
 		//중복 탐색 메서드
+		
 	}
 
 	private String extracted(String temp) {
