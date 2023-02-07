@@ -45,7 +45,7 @@ public class Main {
         
 
         while(true){      //lc.getIslogIn()               //경마(육성)-->
-            System.out.println("      ------------Main--------------  ");
+            System.out.println(" ------------Main--------------  ");
             System.out.println("[1]게임시작! [2]리더보드 [3]설정 [4]종료");
             int choice = sc.nextInt();
             if(choice == 1){
@@ -55,7 +55,7 @@ public class Main {
             	String name = sc.next();
             	hi.setName(name);
             	hi.setId(lc.getLoginId());
-            	int select = sc.nextInt();
+            	
             	while(true){
                 	if(mc.getTrun()>=10) {
                 		System.out.println("10턴이 지나 게임이 종료되었습니다.");
@@ -75,6 +75,7 @@ public class Main {
                 		break;
                 	}
             		System.out.println("[1]경기Start [2]말 확인(경기 이력+) [3]말 훈련 [4]저장하고 Main 으로 돌아가기");
+            		int select = sc.nextInt();
             		if(select==1){  
             			System.out.println("======경기를 시작합니다======");
             			System.out.println("press enter to continu");                 	
