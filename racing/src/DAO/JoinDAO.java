@@ -41,7 +41,7 @@ public class JoinDAO {
 	public boolean Login(joinInformation dto) {
 		connection();
 		try {
-			String sql = "select * from 회원정보 where id=? and pw=?";
+			String sql = "select * from 회원정보 where 회원id=? and 패스워드=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getPw());

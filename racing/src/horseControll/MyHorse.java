@@ -48,7 +48,7 @@ public class MyHorse implements Horse{
 				ran = rm.nextInt(max+1);
 				if(ran>min) break;
 			}
-			for(int i =min; i<= ran; i++){
+			for(int i =0; i<= ran; i++){
 				line+="-";
 			}
 	
