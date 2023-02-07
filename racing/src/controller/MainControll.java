@@ -5,8 +5,8 @@ import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Scanner;
 
+import DTO.GameDTO;
 import DTO.HorseInfo;
-import DTO.Rank;
 import horseControll.Black;
 import horseControll.Blue;
 import horseControll.MyHorse;
@@ -20,20 +20,20 @@ public class MainControll {
 	private int myMin = 1;
 	private int fieldSize = 20;
 	private int trun;
+	private int win;
+	private int loss;
 	public int getTrun() {
 		return trun;
 	}
-	private int win;
-	private int loss;
-	ArrayList<String> rank = new ArrayList<>();
-	
-	public void run() {
-		MyHorse mh = new MyHorse(myMax, myMin);
-		Black bk = new Black(max, min);
+	public void run(HorseInfo hi, GameDTO gd) {
+		ArrayList<String> rank = new ArrayList<>();
+		MyHorse mh = new MyHorse(hi.getMax(), hi.getMin());
+		Black bk = new Black(gd.getMax(), gd.getMin());
 		Blue bl = new Blue(max, min);
 		Red rd = new Red(max, min);
 		White wh = new White(max, min);
-		HorseInfo hi = new HorseInfo();
+		
+//		HorseInfo hi = new HorseInfo();
 		String mhRuned = "";
 		String bkRuned = "";
 		String blRuned = "";
@@ -42,7 +42,7 @@ public class MainControll {
 		while (true) {
 			Scanner sc = new Scanner(System.in);
 			String input = sc.nextLine();
-
+			
 			bkRuned += bk.move(bk, input);
 			blRuned += bl.move(bl, input);
 			mhRuned += mh.move(mh, input);
@@ -63,7 +63,7 @@ public class MainControll {
 			
 			if(mhRuned.length() >= fieldSize) {
 				mhRuned = extracted(fieldSize);
-				rank.add(mh.name());
+				rank.add(hi.getName());
 			}
 			
 			if(rdRuned.length() >= fieldSize) {
@@ -91,27 +91,28 @@ public class MainControll {
 			}
 
 		}
-		sortedArray();
+		
+
+		min++;
+		
+		max++;
+		gd.setMax(gd.getMax()+1);
+		fieldSize+=2;
+		trun++;
+		LinkedHashSet<String> rank_Hs = new LinkedHashSet<>(rank);	
+		rank.clear();
+		rank.addAll(rank_Hs);	
 		if(rank.get(0).equals(hi.getName())) {
 			win++;
 		}else loss++;
-
-		min++;
-		max++;
-		fieldSize+=2;
-		trun++;
-	}
-	public void sortedArray() {
-	LinkedHashSet<String> rank_Hs = new LinkedHashSet<>(rank);	
-		rank.clear();
-		
-		rank.addAll(rank_Hs);	
-		
-	}
-	public void ranked() {
 		for(int i = 0; i<rank.size(); i++) {
 			System.out.println((i+1)+ "등 : " + rank.get(i));
 		}
+		
+	}
+
+	public void ranked() {
+
 	}
 
 	private String extracted(int fieldSize) {

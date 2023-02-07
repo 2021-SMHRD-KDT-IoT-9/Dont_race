@@ -8,8 +8,8 @@ import DTO.HorseInfo;
 public class MyHorse implements Horse{
 	private int max;
 	private int min;
+	HorseInfo hi = new HorseInfo();
 	
-	HorseInfo hi;
 	public MyHorse(int max, int min) {
 		super();
 		this.max = max;
@@ -19,8 +19,6 @@ public class MyHorse implements Horse{
 	@Override
 	public String name() {
 		// TODO Auto-generated method stub
-		HorseInfo hi = new HorseInfo();
-
 		return hi.getName();          //HorseInfo.getName;
 
 

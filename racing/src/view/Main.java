@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import DTO.GameDTO;
 import DTO.HorseInfo;
 import DTO.joinInformation;
 import controller.LoginCon;
@@ -13,6 +14,7 @@ public class Main {
         MainControll mc = new MainControll();
         LoginCon lc= new LoginCon(); 
         HorseInfo hi = new HorseInfo();
+        GameDTO gd = new GameDTO();
         
         System.out.println("------경마 시뮬레이션------");
         
@@ -80,7 +82,7 @@ public class Main {
             			System.out.println("======경기를 시작합니다======");
             			System.out.println("press enter to continu");                 	
             			mc = new MainControll();
-            			mc.run();
+            			mc.run(hi,gd);
             			mc.ranked();
             		}else if(select==2){        
             			
