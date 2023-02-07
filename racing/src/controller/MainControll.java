@@ -106,7 +106,7 @@ public class MainControll {
 			win++;
 		}else loss++;
 		for(int i = 0; i<rank.size(); i++) {
-			System.out.println((i+1)+ "등 : " + rank.get(i));
+			System.out.println((i+1)+ " 등 : " + rank.get(i));
 		}
 		
 	}

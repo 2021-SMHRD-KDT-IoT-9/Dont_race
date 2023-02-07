@@ -40,7 +40,7 @@ public class GameDTO {
 	public int getLoss() {
 		return loss;
 	}
-	public void setLoss(int loss) {
+	public void setLoss(int loss) {//sd
 		this.loss = loss;
 	}
 	

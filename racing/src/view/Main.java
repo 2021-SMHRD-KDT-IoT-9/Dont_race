@@ -111,7 +111,7 @@ public class Main {
             }else if(choice == 4){      //종료
                 System.out.println("종료합니다.");
                 break;
-            }else System.out.println("입력오류!");
+            }else System.out.println("입력오류");
 
         }
 
