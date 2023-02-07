@@ -39,7 +39,7 @@ public class White implements Horse{
 				ran = rm.nextInt(max);
 				if(ran>min) break;
 			}
-			for(int i =min; i< ran; i++){
+			for(int i =min; i<= ran; i++){
 				line+="-";
 			}
 	

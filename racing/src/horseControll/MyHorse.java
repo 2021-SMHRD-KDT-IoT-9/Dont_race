@@ -19,9 +19,9 @@ public class MyHorse implements Horse{
 	@Override
 	public String name() {
 		// TODO Auto-generated method stub
+		HorseInfo hi = new HorseInfo();
 
-
-		return "";          //HorseInfo.getName;
+		return hi.getName();          //HorseInfo.getName;
 
 
 
@@ -48,7 +48,7 @@ public class MyHorse implements Horse{
 				ran = rm.nextInt(max+1);
 				if(ran>min) break;
 			}
-			for(int i =min; i< ran; i++){
+			for(int i =min; i<= ran; i++){
 				line+="-";
 			}
 	

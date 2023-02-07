@@ -1,9 +1,12 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Random;
 import java.util.Scanner;
 
+import DTO.HorseInfo;
+import DTO.Rank;
 import horseControll.Black;
 import horseControll.Blue;
 import horseControll.MyHorse;
@@ -13,17 +16,21 @@ import horseControll.White;
 public class MainControll {
 	private int max = 4;
 	private int min = 1;
-	private int myMax = 4;
+	private int myMax = 5;
 	private int myMin = 1;
-	private int fieldSize = 30;
+	private int fieldSize = 20;
+	private int trun;
+	private int win;
+	private int loss;
 	ArrayList<String> rank = new ArrayList<>();
+	
 	public void run() {
 		MyHorse mh = new MyHorse(myMax, myMin);
 		Black bk = new Black(max, min);
 		Blue bl = new Blue(max, min);
 		Red rd = new Red(max, min);
 		White wh = new White(max, min);
-
+		HorseInfo hi = new HorseInfo();
 		String mhRuned = "";
 		String bkRuned = "";
 		String blRuned = "";
@@ -53,7 +60,7 @@ public class MainControll {
 			
 			if(mhRuned.length() >= fieldSize) {
 				mhRuned = extracted(fieldSize);
-				rank.add(mh.name());
+				rank.add(hi.getName());
 			}
 			
 			if(rdRuned.length() >= fieldSize) {
@@ -67,11 +74,11 @@ public class MainControll {
 			}
 		
 
-			System.out.println(bkRuned + ">");
-			System.out.println(blRuned + ">");
-			System.out.println(mhRuned + ">");// 나의 말
-			System.out.println(rdRuned + ">");
-			System.out.println(whRuned + ">");
+			System.out.println(bkRuned + "> "+bk.name());
+			System.out.println(blRuned + "> "+bl.name());
+			System.out.println(mhRuned + "> "+hi.getName());// 나의 말
+			System.out.println(rdRuned + "> "+rd.name());
+			System.out.println(whRuned + "> "+wh.name());
 
 			if (mhRuned.length() >= fieldSize && bkRuned.length() >= fieldSize && blRuned.length() >= fieldSize && rdRuned.length() >= fieldSize
 					&& whRuned.length() >= fieldSize) {
@@ -79,13 +86,27 @@ public class MainControll {
 			}
 
 		}
+		sortedArray();
+		if(rank.get(0).equals(hi.getName())) {
+			win++;
+		}else loss++;
+
 		min++;
 		max++;
 		fieldSize+=2;
+		trun++;
 	}
-	private void sortedArray() {
-
+	public void sortedArray() {
+	LinkedHashSet<String> rank_Hs = new LinkedHashSet<>(rank);	
+		rank.clear();
 		
+		rank.addAll(rank_Hs);	
+		
+	}
+	public void ranked() {
+		for(int i = 0; i<rank.size(); i++) {
+			System.out.println((i+1)+ "등 : " + rank.get(i));
+		}
 	}
 
 	private String extracted(int fieldSize) {
@@ -113,10 +134,20 @@ public class MainControll {
 		max++;
 		return ran;
 	}
-	
-	public void name() {
-		// 게임진행 메서드.
+	public int getMyMax() {
+		return myMax;
 	}
+	public int getMyMin() {
+		return myMin;
+	}
+	public int getWin() {
+		return win;
+	}
+	public int getLoss() {
+		return loss;
+	}
+	
+
 
 
 
