@@ -9,27 +9,27 @@ public class HorseInfo {
 	private int min;
 	private int rank;
 	private String id;
-	private int game;
 	
+	
+	public String getId() {
+		return id;
+	}
 
 
-
-
-
-
-
-	public HorseInfo(String name, int max, int min, int rank, String id, int game) {
-		super();
-
-		this.name = name;
-		this.game = game;
-		this.min = min;
-		this.max = max;
-		this.rank = rank;
+	public void setId(String id) {
 		this.id = id;
 	}
 
 
+
+	public HorseInfo(String name, int max, int min, int rank, String id) {
+		super();
+		this.name = name;
+		this.max = max;
+		this.min = min;
+		this.rank = rank;
+		this.id = id;
+	}
 	public HorseInfo() {
 		
 	}
@@ -37,18 +37,6 @@ public class HorseInfo {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	
-	
-	public void setGame(int game) {
-		this.game = game;
-	}
-	
 
 
 	public void setMax(int max) {
@@ -67,13 +55,6 @@ public class HorseInfo {
 
 	public String getName() {
 		return name;
-	}
-	public String getId() {
-		return id;
-	}
-	
-	public int getGame() {
-		return game;
 	}
 
 	public int getMax() {

@@ -45,7 +45,7 @@ public class MyHorse implements Horse{
 		if(input.equals("")){
 			int ran = 0;
 			while(true) {
-				ran = rm.nextInt(max+1);
+				ran = rm.nextInt(max);
 				if(ran>min) break;
 			}
 			for(int i =0; i<= ran; i++){

@@ -82,6 +82,8 @@ public class MainControll {
 			System.out.println(mhRuned + "> "+hi.getName());// 나의 말
 			System.out.println(rdRuned + "> "+rd.name());
 			System.out.println(whRuned + "> "+wh.name());
+			
+		   
 
 			if (mhRuned.length() >= fieldSize && bkRuned.length() >= fieldSize && blRuned.length() >= fieldSize && rdRuned.length() >= fieldSize
 					&& whRuned.length() >= fieldSize) {
