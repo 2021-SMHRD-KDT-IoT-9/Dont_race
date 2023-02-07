@@ -21,7 +21,6 @@ public class Main {
             int choice = sc.nextInt();
             if(choice == 1){                //로그인 시퀀스 , (배팅게임일시) 파산계정으로 로그인시 로그인 거부
 
-               // isLogin = true;                
           	System.out.print("ID : ");
             	String id = sc.next();
             	System.out.print("PW : ");
@@ -45,7 +44,7 @@ public class Main {
         }
         
 
-        while(lc.getIslogIn()){                     //경마(육성)-->
+        while(true){      //lc.getIslogIn()               //경마(육성)-->
             System.out.println("      ------------Main--------------  ");
             System.out.println("[1]게임시작! [2]리더보드 [3]설정 [4]종료");
             int choice = sc.nextInt();
@@ -54,8 +53,7 @@ public class Main {
                 while(true){
                     System.out.println("          =======Game Start=======");
                     System.out.println("[1]내 말 만들기 [2]경기Start [3]말 확인(경기 이력+) [4]말 훈련 [5]저장하고 Main 으로 돌아가기");
-                    // 1 이나 3 입력시 정해진 턴수를 차감.
-                    // 턴수가 지나감에따라 computer의 말들의 data 수정 (random의 범위 , 최소값)
+                    
                     int select = sc.nextInt();
                     if(select == 1){			//경기 시퀀스(각 경기마다 도달 등수를 저장)
                         System.out.print("말이름을 입력하세요>>");
@@ -65,21 +63,22 @@ public class Main {
 
                     }else if(select==2){  
                     	System.out.println("======경기를 시작합니다======");
-
-                    	System.out.println("press enter to continu");
-                       
-
-                 
-
-                    	System.out.println("press enter to continu");                  	
+                    	System.out.println("press enter to continu");                 	
                     	mc = new MainControll();
-
                     	mc.run();
+                    	mc.ranked();
                     }else if(select==3){        
                         
                     }else if(select==4){        
-
-                        
+                    	System.out.println("[1]최대속도 훈련 [2]최소속도 훈련" );
+                        int choice2 = sc.nextInt();
+                        if(choice2==1) {
+                        	int temp = mc.trainMax();
+                        	System.out.println("최대속도 " + temp + " 증가");
+                        }else if(choice2 == 2) {
+                        	int temp = mc.trainMin();
+                        	System.out.println("최소속도 " + temp + " 증가");
+                        }
                     }else if(select==5) {
                     	continue ;
 
