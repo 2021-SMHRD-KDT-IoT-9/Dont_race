@@ -6,6 +6,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/hyuns/Downloads/sqldeveloper-22.2.1.234.1810-no-jre/sqldeveloper/sqldeveloper/extensions/oracle.sqldeveloper.pgql/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/자료실/DB/데이터베이스/sqldeveloper/jdbc/lib/ojdbc8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

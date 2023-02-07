@@ -23,14 +23,15 @@ public class HorseDAO {
 		connection();
 		try {
 			row = 0;
-			String sql = "insert into 말 values(?, ?, ?, ?, ?)";
+			String sql = "insert into 말 values(?, ?, ?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, dto.getName());
-			psmt.setInt(2, dto.getRank());
+			psmt.setInt(2, dto.getGame());
 			psmt.setInt(3, dto.getMin());
 			psmt.setInt(4, dto.getMax());
 			psmt.setString(5, dto.getId());
+			psmt.setInt(6, dto.getRank());
 
 			row = psmt.executeUpdate();
 
@@ -45,7 +46,7 @@ public class HorseDAO {
 	}
 	// 기록 조회
 	public String recode () {
-		String data = "NAME\tRANK\tMIN\tMAX\n";
+		String data = "NAME\tGAME\tMIN\tMAX\tRANK\n";
 		connection();
 		try {
 			String sql = "select * from 말";
@@ -54,11 +55,11 @@ public class HorseDAO {
 			
 			while(rs.next()) {
 				String name= rs.getString(1);
-				int rank = rs.getInt(2);
+				int game = rs.getInt(2);
 				int min = rs.getInt(3);
 				int max = rs.getInt(4);
-				
-				data += String.format("%s\t%d\t%d\t%d\n", name, rank, min, max);
+				int rank = rs.getInt(5);
+				data += String.format("%s\t%d\t%d\t%d\t%d\n", name, rank, min, max, game);
 			}
 			
 			
@@ -68,7 +69,27 @@ public class HorseDAO {
 			close();
 		}return data;
 	}
-
+	
+		// 리더보드
+	public String leaderboard() {
+		String data = "이름\t1위횟수";
+		connection();
+		try {
+			String sql = "select 말이름, 전적, 랭킹, count(랭킹) as 일위횟수 from 말 where 랭킹 = 1 group by 말이름,전적,랭킹 order by 랭킹 desc";
+		psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				String name = rs.getString(1);
+				int rank = rs.getInt(2);
+				data += String.format("%s\t%d\n", name, rank);
+			}
+		}catch (SQLException e) {
+			System.out.println("SQL 오류");
+		}finally {
+			close();
+		}return data;
+	}
+		
 	
 	
 
