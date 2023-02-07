@@ -19,7 +19,7 @@ public class Main {
         while(true){
             System.out.println("[1]로그인 [2]회원가입 [3]종료 ");
             int choice = sc.nextInt();
-            if(choice == 1){                //로그인 시퀀스 , (배팅게임일시) 파산계정으로 로그인시 로그인 거부
+            if(choice == 1){                //로그인 시퀀스
             	System.out.print("ID : ");
             	String id = sc.next();
             	System.out.print("PW : ");
@@ -42,7 +42,7 @@ public class Main {
         }
         
 
-        while(lc.getIslogIn()){                     //경마(육성)-->
+        while(true){      //lc.getIslogIn()               //경마(육성)-->
             System.out.println("      ------------Main--------------  ");
             System.out.println("[1]게임시작! [2]리더보드 [3]설정 [4]종료");
             int choice = sc.nextInt();

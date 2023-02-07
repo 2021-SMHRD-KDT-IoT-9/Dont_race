@@ -8,7 +8,6 @@ import DTO.HorseInfo;
 public class MyHorse implements Horse{
 	private int max;
 	private int min;
-	private String line = ""; 
 	
 	HorseInfo hi;
 	public MyHorse(int max, int min) {
@@ -42,11 +41,11 @@ public class MyHorse implements Horse{
 	public String move(Horse hs,String input) {
 
 		Random rm = new Random();
-		
+		String line  = "";
 		if(input.equals("")){
 			int ran = 0;
 			while(true) {
-				ran = rm.nextInt(max);
+				ran = rm.nextInt(max+1);
 				if(ran>min) break;
 			}
 			for(int i =min; i< ran; i++){

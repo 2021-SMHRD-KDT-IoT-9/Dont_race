@@ -79,9 +79,9 @@ public class MainControll {
 			}
 
 		}
-//		min++;
-//		max++;
-//		fieldSize+=2;
+		min++;
+		max++;
+		fieldSize+=2;
 	}
 	private void sortedArray() {
 
