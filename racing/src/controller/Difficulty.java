@@ -1,19 +1,18 @@
 package controller;
 
 public class Difficulty {
-	private int easy ;
-	private int middle;
-	private int hard;
+	
 	MainControll mc = new MainControll();
 	
-	public void Easy() {
+	public void getEasy() {
 		mc.setMax(3);
 		mc.setMin(1);
 	}
-	public void Middle() {
-		
+	public void getMiddle() {
+		mc.setMax(4);
+		mc.setMin(1);
 	}
-	public void Hard() {
+	public void getHard() {
 		mc.setMax(5);
 		mc.setMin(2);
 	}
