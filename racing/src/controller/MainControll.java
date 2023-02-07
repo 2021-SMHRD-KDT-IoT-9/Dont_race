@@ -45,18 +45,22 @@ public class MainControll {
 				bkRuned = extracted(fieldSize);
 				rank.add(bk.name());
 			}
+			
 			if(blRuned.length() >= fieldSize) {
 				blRuned = extracted(fieldSize);
 				rank.add(bl.name());
 			}
+			
 			if(mhRuned.length() >= fieldSize) {
 				mhRuned = extracted(fieldSize);
 				rank.add(mh.name());
 			}
+			
 			if(rdRuned.length() >= fieldSize) {
 				rdRuned = extracted(fieldSize);
 				rank.add(rd.name());
 			}
+			
 			if(whRuned.length() >= fieldSize) {
 				whRuned = extracted(fieldSize);
 				rank.add(wh.name());
@@ -75,9 +79,9 @@ public class MainControll {
 			}
 
 		}
-		min++;
-		max++;
-		fieldSize+=2;
+//		min++;
+//		max++;
+//		fieldSize+=2;
 	}
 	private void sortedArray() {
 
