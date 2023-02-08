@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 import DTO.GameDTO;
 import DTO.HorseInfo;
-import controller.LoginCon;
+//import controller.LoginCon;
 
 
 
@@ -41,7 +41,7 @@ public class HorseDAO {
          psmt.setInt(3, dto.getMin());
          psmt.setInt(4, dto.getMax());
          psmt.setString(5, loginId);
-         psmt.setInt(6, 3);
+         psmt.setInt(6, gd.getDif());
          
          row = psmt.executeUpdate();
 
@@ -56,7 +56,7 @@ public class HorseDAO {
    }
    // 리더보드 모든 정보 출력
    public String recode () {
-      String data = "NAME\tGAME\tMIN\tMAX\tID\tRank\n";
+      String data = "NAME\tGAME\tMIN\tMAX\tID\t난이도\n";
       connection();
       try {
          String sql = "select * from 말";
@@ -80,7 +80,26 @@ public class HorseDAO {
          close();
       }return data;
    }
-   
+   public int update (HorseInfo hi) {
+	      connection();
+	      try {
+	         String sql = "update 말 set 전적 = ? ,최소움직임 = ?, 최대움직임 = ? where 말이름 = ?";
+	         psmt = conn.prepareStatement(sql);
+	         psmt.setString(1, hi.getRank()+"승");
+	         psmt.setInt(2, (hi.getMin()));
+	         psmt.setInt(3, hi.getMax());
+	         psmt.setString(4, hi.getName());
+	         row = psmt.executeUpdate();
+	      }catch (SQLException e) {
+	         System.out.println("SQL오류 발생");
+	      } finally {
+	         close(); 
+
+	      }
+
+	      return row;
+	   }
+	   
    
 
    

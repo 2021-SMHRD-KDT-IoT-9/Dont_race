@@ -63,10 +63,13 @@ public class Main {
                  int ch = sc.nextInt();
                  if(ch==1) {
                 	 dc.getEasy(gd);
+                	 gd.setDif(ch);
                  }else if(ch==2) {
                 	 dc.getMiddle(gd);
+                	 gd.setDif(ch);
                  }else if(ch==3) {
                 	 dc.getHard(gd);
+                	 gd.setDif(ch);
                  }else {
                 	 System.out.println("올바른 번호를 입력하세요.");
                  }
@@ -86,6 +89,7 @@ public class Main {
                 		hi.setRank(gd.getWin());
                 		hi.setMax(gd.getMax());
                 		hi.setMin(gd.getMin());
+                		dao.update(hi);
                 		if(gd.getWin()>=3) {
                 			System.out.println("게임에서 승리하셨습니다.");
                 			break;

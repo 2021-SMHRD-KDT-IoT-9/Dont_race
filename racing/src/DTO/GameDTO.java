@@ -10,7 +10,14 @@ public class GameDTO {
 	private int win;
 	private int loss;
 	private int gameCount;
+	private int dif;
 	
+	public int getDif() {
+		return dif;
+	}
+	public void setDif(int dif) {
+		this.dif = dif;
+	}
 	public int getGameCount() {
 		return gameCount;
 	}
